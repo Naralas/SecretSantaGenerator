@@ -3,6 +3,14 @@ info:
   description: "SecretSantaGenerator API Spec"
   version: "1.0.0"
   title: "SecretSantaGenerator API"
+
+consumes:
+- application/json
+produces:
+  - application/json
+
+basePath: /api
+
 paths:
   /list:
     post:
@@ -10,7 +18,7 @@ paths:
       - "list"
       summary: "Create a new santa list"
       description: ""
-      operationId: "addList"
+      operationId: "models.list.add_list"
       consumes:
         - "application/json"
       produces:
@@ -20,6 +28,7 @@ paths:
           description: "Invalid input"
 
     get:
+      operationId: "models.list.get_list"
       tags:
       - "list"
       responses:

@@ -1,18 +1,17 @@
 from flask import Flask, request, jsonify, make_response
-from flask_sqlalchemy import SQLAlchemy
-#from marshmallow_sqlalchemy import ModelSchema
-#from marshmallow import fields
+from flask import render_template
+from config import app, db
+
+# create a URL route in our application for "/"
+
+def home():
+    """
+    This function just responds to the browser URL
+    localhost:5000/
+    :return:        the rendered template "home.html"
+    """
+    return render_template("home.html")
 
 
-
-DEBUG = True
-app = Flask(__name__)
-app.config.from_object(__name__)
-
-def main():
-    app.run()
-    
-    
-if __name__ == '__main__':
-    main()
-    
+if __name__ == "__main__":
+    app.run(debug=True)
