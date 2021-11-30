@@ -3,7 +3,7 @@ from flask import render_template
 from config import app, db
 
 # create a URL route in our application for "/"
-
+@app.route("/")
 def home():
     """
     This function just responds to the browser URL

@@ -1,6 +1,7 @@
 import os
 from config import db
-from models.models import List, GiftRelation
+from models.list import *
+from models.gift_relation import *
 
 # Data to initialize database with
 lists = [
@@ -18,6 +19,7 @@ if os.path.exists("lists.db"):
 
 
 # Create the database
+db.drop_all()
 db.create_all()
 
 for l in lists:
@@ -42,3 +44,7 @@ relations = [
 
 db.session.add_all(relations)
 db.session.commit()
+
+list_schema = ListSchema()
+dump_data = list_schema.dump(lists[0])
+print(dump_data)
