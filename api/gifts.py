@@ -15,18 +15,14 @@ import argparse
 
 n_stop = 1000
 
-people = ['Maxime', 'Blonde', 'Brune', 'Nina', 'Louis', 'Ludovic', 'Erwan']
+people = []
 
-couples = [('Brune', 'Louis'),]
+couples = []
 
 # will check for directed constrain can't do person_1 -> person_2
 directed_constraints = []
 
 directed_constraints.extend([
-    ('Brune', 'Blonde'), 
-    ('Blonde', 'Ludovic'), 
-    ('Ludovic', 'Brune'),
-    ('Louis', 'Nina'),
 ])
 
 def pop_random_item(l):
