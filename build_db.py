@@ -1,5 +1,5 @@
 import os
-from config import db
+from extensions import db
 from models.list import *
 from models.gift_relation import *
 

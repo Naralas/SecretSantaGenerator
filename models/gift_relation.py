@@ -1,4 +1,4 @@
-from config import db
+from extensions import db
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
     

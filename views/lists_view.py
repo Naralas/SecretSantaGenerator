@@ -1,12 +1,28 @@
-from app import app
 from flask import request, jsonify
-from models.list import List
+from flask_restful import Resource
+from models.list import List, ListSchema
 
-#https://flask-restful.readthedocs.io/en/latest/quickstart.html#a-minimal-api
+class MultiListResource(Resource):
+    multi_list_schema = ListSchema(many=True)
+    def get(self):
+        
+        all_lists = List.query.all()
+        return self.multi_list_schema.dump(all_lists)
+        
+    def post(self):
+        pass
 
-@app.route('/list', methods=['GET'])
-def get_list():
-    if 'id' in request.args:
-        print(request['id'])
-    else:
-        return jsonify({'Error':'Id not provided'})
+class SingleListResource(Resource):
+    single_list_schema = ListSchema()
+    def get(self, id):
+        selected_list = List.query.get(id)
+        return self.single_list_schema.dump(selected_list)
+    
+    def put(self):
+        pass
+    
+    def delete(self):
+        pass
+
+    
+    

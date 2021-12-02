@@ -1,4 +1,4 @@
-from config import db
+from extensions import db
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema, fields
 from models.gift_relation import GiftRelationSchema
 
@@ -16,4 +16,4 @@ class ListSchema(SQLAlchemyAutoSchema):
         load_instance = True
         include_relationships = True
         
-    books = fields.Nested(GiftRelationSchema, many=True)
+    gifts = fields.Nested(GiftRelationSchema, many=True)
